@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Title</title>
+</head>
+<body>
+
+<!--The ng-app directive tells AngularJS that the <div> element is the "owner" of an AngularJS application. -->
+<div ng-app="myapp" ng-controller="myAppController">
+    <div  class="container" >
+        <br>
+        <h3>Notes and code of AngularJS</h3>
+        <br>
+    <p>Input something in the input box:</p>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Write something</span>
+        </div>
+            <!--The ng-model directive binds the value of the input field to the application variable name.  -->
+            <input id="name1" type="text" class="form-control" placeholder="Name"  aria-label="Name" aria-describedby="basic-addon1" ng-model="name">
+        </div>
+        <!--  The ng-bind directive binds the content of the <p> element to the application variable name.  -->
+        <p ng-bind="name"></p>
+
+        <!--  The ng-init directive initializes a variable and the string of the var is presented on the <p> element  -->
+        <div data-ng-init="testVar ='Im the test string'"></div>
+        <p>This is a data init,how to initialize a var angularJS
+            <span data-ng-bind="testVar" style="color: #ff0000"></span></p>
+
+        <p > With this code snippet data-ng-bind="testVar" style="color: #ff0000" presented in <code ng-non-bindable style="color: #ff0000">{{testVar}}</code> :
+            <br> <strong>{{testVar}}</strong> </p>
+        <!--  instead of using ng-bind we can use angularJS expressions  -->
+        <p>An AngularJS expression is similar to bind values with ng-bind, but instead is used <code ng-non-bindable>{{ var name }}</code>.
+            <br>
+            <h5>Executing an expression inside a AngularJS expression</h5>
+        <p><code ng-non-bindable> {{5 + 5}} = </code> {{5 + 5 }}</p>
+            This double curly braces can also evaluate expressions  <code ng-non-bindable>{{ 5 + 5 }}</code>
+
+
+    </div>
+
+
+</div>
+<script>
+    let app = angular.module('myApp', []);
+    app.controller('myAppController', function ($scope) {
+        $scope.name
+    })
+
+</script>
+</body>
+</html>
